@@ -18,7 +18,7 @@ class CategorySerializer(serializers.ModelSerializer):
 class CustomerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Customer
-        fields = '__all__'
+        # fields = '__all__'
         exclude = ['password']
         
 class OrderSerializer(serializers.HyperlinkedModelSerializer):
