@@ -1,9 +1,5 @@
 # from django.shortcuts import render
 
-from functools import partial
-from os import stat
-import re
-from tkinter.messagebox import RETRY
 from rest_framework.views import APIView
 from .serializers import CategorySerializer, CustomerSerializer, OrderSerializer, ProductSerializer
 from rest_framework.response import Response
