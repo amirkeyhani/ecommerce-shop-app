@@ -1,5 +1,7 @@
-from django.urls import path
-from .views import OrderDelete, OrderUpdate, OrderCreate, OrderDetail, OrderList, CategoryDelete, CategoryUpdate, CategoryDetail, CategoryCreate, CategoryList, CustomerCreate, CustomerDelete, CustomerDetail, CustomerList, CustomerUpdate, ProductDelete, ProductUpdate, ProductDetail, ProductCreate, ProductList
+from django.urls import path, include
+from .views import *
+
+from rest_framework_simplejwt import views as jwt_views
 
 urlpatterns = [
     path('products/', ProductList.as_view(), name='product-list'),
@@ -25,4 +27,7 @@ urlpatterns = [
     path('orders/<int:pk>/detail', OrderDetail.as_view(), name='order-detail'),
     path('orders/<int:pk>', OrderUpdate.as_view(), name='order-update'),
     path('orders/<int:pk>', OrderDelete.as_view(), name='order-delete'),
+    
+    path('token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
 ]
